@@ -53,7 +53,7 @@ function init() {
 
     var buttonEditor = new ymaps.control.Button({
         data: {
-            content: "Редактировать"
+            content: "Построить свой маршрут"
         }
     });
 
