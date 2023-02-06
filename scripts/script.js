@@ -122,5 +122,5 @@ function init() {
             iconColor: '#ff0532'
         }))
     };
-}
+};
 ymaps.ready(init);
