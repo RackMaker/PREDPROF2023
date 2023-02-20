@@ -26,7 +26,7 @@ function init() {
      */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
 
-        referencePoints: [POI['Главный вход ВДНХ'], POI['Музей Оптических Иллюзий']],
+        referencePoints: [POI['Главный вход ВДНХ']],
 
         params: {
             routingMode: 'pedestrian'
