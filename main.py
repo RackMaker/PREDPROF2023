@@ -1,20 +1,32 @@
 import eel
-# from DataBase import *
+from dataBase import *
 import json
 
 eel.init('web')
 
+data = {}
+
 @eel.expose
-def send_data_to_json(data):
+def send_data_to_json(login, password):
 
-    # data = {
-    #     'name': 'Абдул',
-    #     'surname': 'Кумаров',
-    #     'age': 15
-    # }
-
-    with open("data_file.json", "w", encoding='utf-8') as write_file:
-        json.dump(data, write_file, indent=4)
+    print(registration(login, password))
 
 
-eel.start('index.html', mode='chrome', size=(1200, 800))
+
+@eel.expose
+def enter_to_account(login, password):
+
+    with open("data_file.json", encoding='utf-8') as read_file:
+        data_dict = json.load(read_file)
+
+
+    if login in data_dict:
+        print('Пользователь есть в базе')
+        if password == data_dict[login]['password']:
+            print('Пароль верный')
+        else:
+            print('Неправильный пароль')
+    else:
+        print('Пользователя нет в базе. Вам нужно зарегестрироваться')
+
+eel.start('index.html', mode="yandex", size=(760, 760))
